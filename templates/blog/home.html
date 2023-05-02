@@ -1,0 +1,12 @@
+{% if user.is_authenticated %}
+<a href="{% url 'account:logout' %}">logout</a>
+<a href="{% url 'account:profile' %}">Profile</a>
+{% else %}
+<a href="{% url 'account:login' %}">login</a>
+{% endif %}
+<hr/>
+{% for object in objects %}
+<ul>
+    <li><a href="{% url 'blog:detail' object.id %}">{{object.title}}</a></li>
+</ul>
+{% endfor %}
